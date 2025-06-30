@@ -31,16 +31,15 @@ app.use(cors({
 app.use("/api/auth",authRoutes);
 app.use("/api/messages",messageRoutes);
 
-if(process.env.NODE_ENV==="production"){
-    app.use(express.static(path.join(__dirname,"../frontend/dist")));
+if (process.env.NODE_ENV === "production") {
+  const frontendPath = path.join(__dirname, "../../frontend/dist"); // go up 2 levels
 
-    app.get("/{*any}",(req,res)=>{
-        res.sendFile(path.join(__dirname,"../frontend","dist","index.html"));
-    })
+  app.use(express.static(frontendPath));
+
+  app.get("/{*any}", (req, res) => {
+    res.sendFile(path.join(frontendPath, "index.html"));
+  });
 }
-
-
-
 
 
 

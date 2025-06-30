@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 5000;
 
 
 // connect mongodb
-connectDB();
+
 
 // middleware
 app.use(express.json({ limit: '5mb' })); // used to extract json data from the body
@@ -36,7 +36,7 @@ if (process.env.NODE_ENV === "production") {
 
   app.use(express.static(frontendPath));
 
-  app.get("*", (req, res) => {
+  app.get("/{*any}", (req, res) => {
     res.sendFile(path.join(frontendPath, "index.html"));
   });
 }
@@ -45,5 +45,6 @@ if (process.env.NODE_ENV === "production") {
 
 
 server.listen(PORT,()=>{
+ connectDB();
  console.log(`Server is started on port : ${PORT}`);
 });

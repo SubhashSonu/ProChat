@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
-    "dev": "nodemon src/index.cjs",
-    "start": "node src/index.cjs"
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
   },
   "author": "",
   "license": "ISC",

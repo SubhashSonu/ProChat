@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 5000;
 // connect mongodb
 connectDB();
 
-middleware
+// middleware
 app.use(express.json({ limit: '5mb' })); // used to extract json data from the body
 app.use(express.urlencoded({ limit: '5mb', extended: true }));
 app.use(cookieParser());

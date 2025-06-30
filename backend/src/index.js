@@ -38,15 +38,17 @@ app.use("/api/messages",messageRoutes);
 //     })
 // }
 
-if (process.env.NODE_ENV === "production") {
-  const frontendPath = path.join(__dirname, "../..", "frontend", "dist");
+if(process.env.NODE_ENV==="production"){
+    // Serve static files from the React app
+    app.use(express.static(path.join(__dirname,"../frontend/dist")));
 
-  app.use(express.static(frontendPath));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(frontendPath, "index.html"));
-  });
+    // The "catchall" handler: for any request that doesn't match one above, send back React's index.html file.
+    app.get("/*",(req,res)=>{
+        res.sendFile(path.join(__dirname,"../frontend","dist","index.html"));
+    })
 }
+
+
 
 
 

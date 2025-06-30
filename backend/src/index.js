@@ -18,14 +18,14 @@ const PORT = process.env.PORT || 5000;
 // connect mongodb
 connectDB();
 
-//middleware
-// app.use(express.json({ limit: '5mb' })); // used to extract json data from the body
-// app.use(express.urlencoded({ limit: '5mb', extended: true }));
-// app.use(cookieParser());
-// app.use(cors({
-//     origin: "http://localhost:5173",
-//     credentials: true
-// }));
+middleware
+app.use(express.json({ limit: '5mb' })); // used to extract json data from the body
+app.use(express.urlencoded({ limit: '5mb', extended: true }));
+app.use(cookieParser());
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true
+}));
 
 // app.use("/api/auth",authRoutes);
 // app.use("/api/messages",messageRoutes);

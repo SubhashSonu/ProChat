@@ -109,6 +109,7 @@ connectSocket: () =>{
     const socket = io(BASE_URL,{
         query: {
             userId: authUser._id,
+            transports: ["websocket"],
         }
     });
 
